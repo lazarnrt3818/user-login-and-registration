@@ -3,6 +3,11 @@ package com.example.userloginandregistration.registration;
 import com.example.userloginandregistration.appuser.AppUser;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.List;
 
 @RestController
@@ -27,8 +32,9 @@ public class RegistrationController {
     }
 
     @GetMapping("/confirm")
-    public void confirmAppUser(@RequestParam("token") String token){
-        registrationService.confirmToken(token);
-    }
+    public void confirmAppUser(@RequestParam("token") String token, HttpServletRequest request, HttpServletResponse response){
 
+        registrationService.confirmToken(token);
+
+    }
 }
