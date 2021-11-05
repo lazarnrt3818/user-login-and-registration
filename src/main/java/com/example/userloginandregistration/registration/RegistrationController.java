@@ -26,8 +26,8 @@ public class RegistrationController {
         return registrationService.getAllUsers();
     }
 
-    @GetMapping("/{token}")
-    public void confirmAppUser(@PathVariable String token){
+    @GetMapping("/confirm")
+    public void confirmAppUser(@RequestParam("token") String token){
         registrationService.confirmToken(token);
     }
 
